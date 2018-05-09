@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>FlexBox</title>
+	<style>
+		#content{
+			background: #e7eef5;
+			height: 500px;
+			display: flex;
+			flex-direction: row; /* row, column, row-reserve, column-reserve */
+			flex-wrap: no-wrap; /* wrap, wrap-reserve, nowrap */ 
+			justify-content: space-between; 
+			/* 
+			flex-start: default;
+			flex-end
+			space-around: (começando das estremidas e indo para o centro) 
+			space-between: (espaçamento começando do centro para as estremidades)
+
+			espaçamento distribuido proporcionalmente conforme o tamanho da div pai, gerando o espaço em cada elemento filho. 
+
+			*/
+			align-items: flex-start; 
+			/*
+				definindo o alinhamento vertical
+				flex-start:  topo da esquerda pra baixo;
+				flex-end:  de baixo para cima;
+				center:  centraliza todas que estão na div filha;
+				strech:  alongando os itens do topo até a base ou baixo dos itens;
+				baseline:  alinhamento sensivel ao conteudo da div filha;
+			*/
+		}
+		.item{
+			height: 100px;
+			width: 100px;
+			color: black;
+			-webkit-box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.24);
+			background-color: white;
+			margin: 5px;
+			flex: 0 1 255px; /*short reduzido*/
+
+			/*flex-grow:0; 
+			flex-shrink:1;
+			flex-basis:255px; *//*define a largura do restante dos elementos que sobrarão dentro da div ou nosso flexbox*/
+		}
+
+		/*
+			flex-grow:0; Ocupamento o resto da largura da div
+			flex-shrink:1; Encolhe a nossa div
+			flex-basis:auto; define um width largura de cada elemento caso não tenha
+			basicamente difere a sensibilidade de escala e tamanho em relação aos outros elementos filhos
+
+
+
+			 flex-basis: auto, valor padrão; 
+			 define a largura do restante dos elementos que sobrarão dentro da div ou nosso flexbox
+		*/
+		.item:nth-child(1){
+			flex-grow:1; /* cresce uma coluna*/
+		}
+
+		/*
+			order: inverte ou ordena os elementos;
+			nth-child(n): seleciona n elemento da div ou item;
+		
+		.item:nth-child(1){
+			order: 2;
+		}
+		.item:nth-child(2){
+			order: 4;
+		}
+		.item:nth-child(3){
+			order: 1;
+		}
+		.item:nth-child(4){
+			order: 3;
+		}*/
+	</style>
+</head>
+<body>
+
+	<section id="content">
+		<article class="item">01</article>
+		<article class="item">02</article>
+		<article class="item">03</article>
+		<article class="item">04</article>
+	</section>
+	
+</body>
+</html>
+
+<!--
+	- Autoprefixed (other browsers) -  https://goo.gl/Ouy5Mk  
+	Trabalhar com outros navegadores ou cross-browsers
+	Adicionar todos os prefixos de todos os navegadores
+	
+	- Flexbox PLayground (flex-box constructor) - https://goo.gl/c8FwCa
+	Treinar e Construir seu flex-box
+	
+	- PoLyfill (flex-box) - https://goo.gl/bkqwQP
+	Para navegadores mais antigos que não tem suporte a propriedade flex. como ie8 e ie9
+ 	
+ 	hack flexbox para ie8 e 9
+	https://github.com/jonathantneal/flexibility
+
+	- W3C documentação oficial flex-box - https://goo.gl/JksFFw
+-->
