@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Flexbox</title>
 	<style>
 		*{
 			padding: 0;
@@ -10,30 +10,65 @@
 		}
 		html, body{
 			height: 100vh;
+			font-size: 62.5%; /*62.5% = 10px*/
 		}
 		#container{
+			position: relative;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			height: 100%;
+			height: auto;
+			background-color: green;
 		}
 		#navbarra{
+			position: absolute;
 			background-color: blue;
-			/*width: 150px; /* wflex: 0 1 150px */
-			flex-basis: 150px;
+			font-size: 1.6rem; /*16*0,75=12px*/
+			width: 150px; 	/*width: 150px; /* flex: 0 1 150px */
 			height: 100%;
+			transition: width .55s ease;	
 		}
 		#topo{
 			background-color: black;
 			width:100%;
-			height: 60px;
+			/*height: 80px;*/
+			padding:5px 0 8px 0;
 		}
 		#conteudo{
-			background-color: red;
-			/*width: calc(100% - 150px);*/
-			flex-basis: calc(100% - 150px);
-			height: 100%;
+			background-color: red;	
+			flex-basis: calc(100% - 150px); /*width: calc(100% - 150px);*/	
+			position: relative;
+			left:150px;		
+			height: auto;
+		}
+		#conteudo p{
+			padding:1rem;
+			font-size:1.6rem;
+			height: 500px;
+		}
+		.icon-bar{
+			background-image: url(menu.svg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 40px;
+			height: 40px;
+			cursor:pointer;
+			margin-left:20px;
+		}
+		.fechado{
+			width: 45px !important;
+		}
+		@media screen and (max-width: 785px) {
+			#navbarra{
+				z-index: 2;
+				position: absolute;
+			}
+			#conteudo{
+				flex-basis: 100%;
+				z-index: 1;
+			}
 		}
 	</style>
 </head>
@@ -48,10 +83,25 @@
 		</nav>
 		
 		<div id="conteudo">
-			<header id="topo"></header>	
-
-
+			<header id="topo">	<div id="btn-menu" class="icon-bar"></div></header>	
+		
+			<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices maximus lacus nec dignissim. Vestibulum et metus tortor. Curabitur est lorem, finibus quis ultricies malesuada, gravida a mi. Mauris at efficitur lectus. Etiam lacinia aliquam ipsum sed dapibus. Cras metus nibh, fringilla non finibus eget, ultricies a quam. Phasellus euismod nulla sed ex ornare, non tincidunt ante aliquet.</p>
+			<p>Nunc id imperdiet lectus. Sed nisl ante, lacinia vel leo vel, porta auctor diam. Vestibulum neque justo, placerat sit amet egestas quis, suscipit eu nibh. Curabitur sed nibh auctor, tristique elit eget, condimentum nunc. Vivamus vel justo ac augue interdum facilisis. Nunc velit erat, congue lacinia enim sit amet, dictum pulvinar dolor. Phasellus facilisis, neque quis vehicula malesuada, velit ante imperdiet libero, sit amet vestibulum eros velit ac diam. Nam ac ullamcorper turpis, sed blandit urna. Cras non ipsum iaculis, aliquet tellus quis, pharetra massa.</p>
+			<p>Suspendisse ut egestas diam. Phasellus nec ex eget leo lacinia varius. Morbi at urna justo. Nullam accumsan in velit venenatis congue. Duis commodo faucibus interdum. Mauris ipsum risus, tincidunt nec porta nec, rhoncus porta tortor. Vivamus dolor tellus, elementum vitae mi ut, vulputate pulvinar nisi. Quisque a nisi non nibh dignissim faucibus eget quis sapien. Integer tincidunt velit commodo, vehicula lectus non, pellentesque libero. In sodales arcu non felis pellentesque, id consequat eros tincidunt. Pellentesque bibendum magna efficitur ipsum ultricies cursus. Phasellus euismod nisl ligula, sit amet tristique tellus finibus rhoncus.</p>
+			<p>Fusce nisl mi, lacinia vitae turpis interdum, sollicitudin dapibus ex. Sed id lobortis eros, at placerat nisl. Quisque ullamcorper ligula nec est rhoncus pulvinar. Aenean pharetra lectus sit amet sapien venenatis, id molestie ligula congue. Pellentesque ullamcorper fermentum tellus, id ultricies tortor fringilla malesuada. Aliquam mattis, tortor et congue interdum, augue ante congue risus, quis consequat nisl diam vitae risus. Mauris felis sem, tempor molestie euismod ac, ullamcorper ut justo. Integer vel urna et metus auctor tempus. Ut gravida dictum dui non consectetur.</p>
 		</div>
 	</div>
+	<script>
+		document.getElementById("btn-menu").onclick = function(){
+			abrirMenu();
+		};
+
+		function abrirMenu(){
+			var menu = document.getElementById("navbarra");
+			menu.classList.toggle("fechado");
+			
+		}
+	</script>
 </body>
 </html>
