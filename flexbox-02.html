@@ -41,6 +41,7 @@
 			position: relative;
 			left:150px;		
 			height: auto;
+			transition: left .55s ease;
 		}
 		#conteudo p{
 			padding:1rem;
@@ -57,8 +58,13 @@
 			cursor:pointer;
 			margin-left:20px;
 		}
-		.fechado{
+		.fechado-menu{
 			width: 45px !important;
+		}
+		.redimensionando{
+			flex-basis: calc(100% - 45px) !important;
+			position: relative;
+			left:45px !important;
 		}
 		@media screen and (max-width: 785px) {
 			#navbarra{
@@ -99,8 +105,10 @@
 
 		function abrirMenu(){
 			var menu = document.getElementById("navbarra");
-			menu.classList.toggle("fechado");
+			menu.classList.toggle("fechado-menu");
 			
+			var conteudo = document.getElementById("conteudo");
+			conteudo.classList.toggle("redimensionando");
 		}
 	</script>
 </body>
