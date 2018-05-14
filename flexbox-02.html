@@ -66,6 +66,11 @@
 			position: relative;
 			left:45px !important;
 		}
+		.menu-fixo{
+			position:fixed;
+			top:0;
+			z-index: 9999;
+		}
 		@media screen and (max-width: 785px) {
 			#navbarra{
 				z-index: 2;
@@ -99,9 +104,14 @@
 		</div>
 	</div>
 	<script>
+		window.onscroll = function(){
+			menuFixo();
+		};
+
 		document.getElementById("btn-menu").onclick = function(){
 			abrirMenu();
 		};
+	
 
 		function abrirMenu(){
 			var menu = document.getElementById("navbarra");
@@ -109,6 +119,14 @@
 			
 			var conteudo = document.getElementById("conteudo");
 			conteudo.classList.toggle("redimensionando");
+		}
+
+		function menuFixo(){
+			if(document.body.scrollTop > 400 || document.documentElement.scrollTop > 400){
+				document.querySelector("#navbarra ul").classList.add("menu-fixo");
+			}else{
+				document.querySelector("#navbarra ul").classList.remove("menu-fixo");
+			}
 		}
 	</script>
 </body>
