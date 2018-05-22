@@ -46,6 +46,7 @@
 			height: auto;
 			transition: left .55s ease;
 			overflow-x: hidden;
+			overflow-y: hidden;
 		}
 		#conteudo p{
 			padding:1rem;
@@ -61,6 +62,18 @@
 			height: 40px;
 			cursor:pointer;
 			margin-left:20px;
+			margin-right: 20px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.input-busca{
+			height: 40px;
+			vertical-align: middle;
+			padding-left:10px;
+			font-size:1.6rem;
+			width: 300px;
+			border:0px;
+			cursor:pointer;
 		}
 		.fechado-menu{
 			width: 45px !important;
@@ -108,7 +121,7 @@
 		</nav>
 		
 		<div id="conteudo">
-			<header id="topo">	<div id="btn-menu" class="icon-bar"></div> </header>	
+			<header id="topo">	<div id="btn-menu" class="icon-bar"></div> <input type="text" class="input-busca"> </header>	
 			<div class="row">
 				<div class="col-3">Bloco 1</div>
 				<div class="col-3">Bloco 2</div>
