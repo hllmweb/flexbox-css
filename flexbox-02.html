@@ -75,7 +75,19 @@
 			top:0;
 			z-index: 9999;
 		}
-
+		.row{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			/*grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));*/
+			align-items: center;
+			grid-gap: 15px;
+			margin:15px;
+		}
+		.col-3{
+			background-color:blue;
+			padding:20px;
+			font-size:14px;
+		}
 		@media only screen and (max-width: 768px) {
 			#navbarra{
 				font-size:1.6rem !important;
@@ -97,7 +109,11 @@
 		
 		<div id="conteudo">
 			<header id="topo">	<div id="btn-menu" class="icon-bar"></div> </header>	
-		
+			<div class="row">
+				<div class="col-3">Bloco 1</div>
+				<div class="col-3">Bloco 2</div>
+				<div class="col-3">Bloco 3</div>
+			</div>
 			<p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices maximus lacus nec dignissim. Vestibulum et metus tortor. Curabitur est lorem, finibus quis ultricies malesuada, gravida a mi. Mauris at efficitur lectus. Etiam lacinia aliquam ipsum sed dapibus. Cras metus nibh, fringilla non finibus eget, ultricies a quam. Phasellus euismod nulla sed ex ornare, non tincidunt ante aliquet.</p>
 			<p>Nunc id imperdiet lectus. Sed nisl ante, lacinia vel leo vel, porta auctor diam. Vestibulum neque justo, placerat sit amet egestas quis, suscipit eu nibh. Curabitur sed nibh auctor, tristique elit eget, condimentum nunc. Vivamus vel justo ac augue interdum facilisis. Nunc velit erat, congue lacinia enim sit amet, dictum pulvinar dolor. Phasellus facilisis, neque quis vehicula malesuada, velit ante imperdiet libero, sit amet vestibulum eros velit ac diam. Nam ac ullamcorper turpis, sed blandit urna. Cras non ipsum iaculis, aliquet tellus quis, pharetra massa.</p>
